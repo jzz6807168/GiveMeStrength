@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "SimplePingHelper.h"
+#import "HostsReplaceURLProtocol.h"
+//#import "AFNetworking.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    
+    [NSURLProtocol registerClass:[HostsReplaceURLProtocol class]];
+    //@"www.sina.com",@"www.hao123.com",@"www.taobao.com",@"www.qq.com"
+    [SimplePingHelper simpleHostpings:@[@"apis.baidu.com"/*@",app.xidibuy.com,appshop.xidibuy.com"*/] completeBlock:^(NSArray *hostPingTimeArray) {
+        [HostsReplaceURLProtocol configureHostsWithBlock:^(id<HostsReplaceConfigurationDelegate> configuration) {
+            NSDictionary *hostDict = hostPingTimeArray.firstObject;
+            [configuration replaceHostName:@"apis.baidu.com"/*@",app.xidibuy.com,appshop.xidibuy.com"*/ toIPAddress:hostDict.allKeys.firstObject];
+        }];
+        NSLog(@"%@",hostPingTimeArray);
+    }];
+    
     /*
      AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
      manager.responseSerializer=[AFHTTPResponseSerializer serializer];
@@ -33,6 +45,7 @@
      
      }];
      */
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

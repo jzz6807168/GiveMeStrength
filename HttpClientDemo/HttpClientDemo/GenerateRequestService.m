@@ -17,7 +17,9 @@
 
 - (NSString *)onlineApiBaseUrl
 {
-    return @"app.xidibuy.com";
+//    URL.HostName;
+//    return @"app.xidibuy.com";
+    return @"apis.baidu.com";
 }
 
 - (NSString *)onlineApiVersion
@@ -32,7 +34,7 @@
 
 - (NSString *)onlinePrivateKey
 {
-    return @"";
+    return @"2f89fc72d09998b22585ba93205580f8";
 }
 
 - (NSString *)offlineApiBaseUrl

@@ -41,6 +41,11 @@
 		1267BFCC1CD9D6640033184C /* APILogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFCB1CD9D6640033184C /* APILogger.m */; };
 		1267BFCF1CD9E8560033184C /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFCE1CD9E8560033184C /* APIManager.m */; };
 		1267BFD21CD9EB1A0033184C /* ApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFD11CD9EB1A0033184C /* ApiProxy.m */; };
+		1267BFD51CD9FDC50033184C /* ItemListAPICmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFD41CD9FDC50033184C /* ItemListAPICmd.m */; };
+		1267BFDF1CD9FFB10033184C /* EtcHostsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFDD1CD9FFB10033184C /* EtcHostsURLProtocol.m */; };
+		1267BFE51CDA00190033184C /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFE21CDA00190033184C /* SimplePing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1267BFE61CDA00190033184C /* SimplePingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFE41CDA00190033184C /* SimplePingHelper.m */; };
+		1267BFEA1CDA00B70033184C /* HostsReplaceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 1267BFE91CDA00B70033184C /* HostsReplaceURLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +136,17 @@
 		1267BFCE1CD9E8560033184C /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		1267BFD01CD9EB1A0033184C /* ApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiProxy.h; sourceTree = "<group>"; };
 		1267BFD11CD9EB1A0033184C /* ApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiProxy.m; sourceTree = "<group>"; };
+		1267BFD31CD9FDC50033184C /* ItemListAPICmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListAPICmd.h; sourceTree = "<group>"; };
+		1267BFD41CD9FDC50033184C /* ItemListAPICmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListAPICmd.m; sourceTree = "<group>"; };
+		1267BFDC1CD9FFB10033184C /* EtcHostsURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtcHostsURLProtocol.h; sourceTree = "<group>"; };
+		1267BFDD1CD9FFB10033184C /* EtcHostsURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtcHostsURLProtocol.m; sourceTree = "<group>"; };
+		1267BFDE1CD9FFB10033184C /* NSEtcHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSEtcHosts.h; sourceTree = "<group>"; };
+		1267BFE11CDA00190033184C /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		1267BFE21CDA00190033184C /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		1267BFE31CDA00190033184C /* SimplePingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePingHelper.h; sourceTree = "<group>"; };
+		1267BFE41CDA00190033184C /* SimplePingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingHelper.m; sourceTree = "<group>"; };
+		1267BFE81CDA00B70033184C /* HostsReplaceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostsReplaceURLProtocol.h; sourceTree = "<group>"; };
+		1267BFE91CDA00B70033184C /* HostsReplaceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostsReplaceURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +302,8 @@
 		1267BF951CD7569D0033184C /* BSAPIManagers */ = {
 			isa = PBXGroup;
 			children = (
+				1267BFD31CD9FDC50033184C /* ItemListAPICmd.h */,
+				1267BFD41CD9FDC50033184C /* ItemListAPICmd.m */,
 			);
 			name = BSAPIManagers;
 			sourceTree = "<group>";
@@ -301,6 +319,8 @@
 		1267BF971CD756EB0033184C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1267BFD71CD9FE7A0033184C /* Assist */,
+				1267BFD61CD9FE6F0033184C /* NSEtcHosts */,
 				1267BF981CD757710033184C /* Services */,
 				1267BFAC1CD99A7C0033184C /* Components */,
 				1267BFAD1CD99AEE0033184C /* Categories */,
@@ -392,6 +412,45 @@
 				1267BFC81CD9D6170033184C /* BaseAPICmd.m */,
 			);
 			name = APICmd;
+			sourceTree = "<group>";
+		};
+		1267BFD61CD9FE6F0033184C /* NSEtcHosts */ = {
+			isa = PBXGroup;
+			children = (
+				1267BFDC1CD9FFB10033184C /* EtcHostsURLProtocol.h */,
+				1267BFDD1CD9FFB10033184C /* EtcHostsURLProtocol.m */,
+				1267BFDE1CD9FFB10033184C /* NSEtcHosts.h */,
+			);
+			name = NSEtcHosts;
+			sourceTree = "<group>";
+		};
+		1267BFD71CD9FE7A0033184C /* Assist */ = {
+			isa = PBXGroup;
+			children = (
+				1267BFE01CDA00190033184C /* SimplePing */,
+				1267BFE71CDA00520033184C /* HostsReplace */,
+			);
+			name = Assist;
+			sourceTree = "<group>";
+		};
+		1267BFE01CDA00190033184C /* SimplePing */ = {
+			isa = PBXGroup;
+			children = (
+				1267BFE11CDA00190033184C /* SimplePing.h */,
+				1267BFE21CDA00190033184C /* SimplePing.m */,
+				1267BFE31CDA00190033184C /* SimplePingHelper.h */,
+				1267BFE41CDA00190033184C /* SimplePingHelper.m */,
+			);
+			path = SimplePing;
+			sourceTree = "<group>";
+		};
+		1267BFE71CDA00520033184C /* HostsReplace */ = {
+			isa = PBXGroup;
+			children = (
+				1267BFE81CDA00B70033184C /* HostsReplaceURLProtocol.h */,
+				1267BFE91CDA00B70033184C /* HostsReplaceURLProtocol.m */,
+			);
+			name = HostsReplace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,11 +585,13 @@
 			files = (
 				1267BF861CD7562E0033184C /* AFHTTPRequestOperation.m in Sources */,
 				1267BF921CD7563E0033184C /* Aspects.m in Sources */,
+				1267BFEA1CDA00B70033184C /* HostsReplaceURLProtocol.m in Sources */,
 				1267BFC21CD9C8090033184C /* URLResponse.m in Sources */,
 				1267BFB31CD99BBD0033184C /* NSArray+NetworkingMethods.m in Sources */,
 				1267BFCF1CD9E8560033184C /* APIManager.m in Sources */,
 				1244A5FF1CC0955B001D311B /* ViewController.m in Sources */,
 				1267BFAB1CD89EDC0033184C /* ServicePrivate.m in Sources */,
+				1267BFDF1CD9FFB10033184C /* EtcHostsURLProtocol.m in Sources */,
 				1267BF871CD7562E0033184C /* AFHTTPRequestOperationManager.m in Sources */,
 				1267BFBC1CD9C3AA0033184C /* NSObject+NetworkingMethods.m in Sources */,
 				1267BF891CD7562E0033184C /* AFNetworkReachabilityManager.m in Sources */,
@@ -548,11 +609,14 @@
 				1267BF8E1CD7562E0033184C /* AFURLSessionManager.m in Sources */,
 				1244A5FC1CC0955B001D311B /* AppDelegate.m in Sources */,
 				1244A5F91CC0955B001D311B /* main.m in Sources */,
+				1267BFD51CD9FDC50033184C /* ItemListAPICmd.m in Sources */,
+				1267BFE61CDA00190033184C /* SimplePingHelper.m in Sources */,
 				1267BFB91CD9C1BC0033184C /* NSURLRequest+NetworkingMethods.m in Sources */,
 				1267BFB61CD9A8430033184C /* NSDictionary+NetworkingMethods.m in Sources */,
 				1267BFD21CD9EB1A0033184C /* ApiProxy.m in Sources */,
 				1267BFA21CD874EF0033184C /* ServiceFactory.m in Sources */,
 				1267BFBF1CD9C5B80033184C /* NSMutableString+NetworkingMethods.m in Sources */,
+				1267BFE51CDA00190033184C /* SimplePing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
