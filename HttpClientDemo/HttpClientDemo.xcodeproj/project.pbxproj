@@ -336,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				1267BF991CD7578F0033184C /* GenerateRequestService */,
-				1267BF9D1CD757E90033184C /* Service.h */,
 				1267BF9E1CD757E90033184C /* Service.m */,
 				1267BFA01CD874EF0033184C /* ServiceFactory.h */,
 				1267BFA11CD874EF0033184C /* ServiceFactory.m */,
@@ -351,6 +350,7 @@
 		1267BF991CD7578F0033184C /* GenerateRequestService */ = {
 			isa = PBXGroup;
 			children = (
+				1267BF9D1CD757E90033184C /* Service.h */,
 				1267BFA61CD878D70033184C /* GenerateRequestService.h */,
 				1267BFA71CD878D70033184C /* GenerateRequestService.m */,
 			);
