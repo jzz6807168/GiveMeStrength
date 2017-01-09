@@ -20,57 +20,57 @@ class BrowserView: UIView ,UIWebViewDelegate{
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        kv = Config .sharedConfig().kv
+        kv = Config .shared().kv
         //clear cookie
         
-        let cookies:Array = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies!
+        let cookies:Array = HTTPCookieStorage.shared.cookies!
         if cookies.isEmpty == false {
-            for cookie:NSHTTPCookie in cookies {
-                NSHTTPCookieStorage.sharedHTTPCookieStorage().deleteCookie(cookie)
+            for cookie:HTTPCookie in cookies {
+                HTTPCookieStorage.shared.deleteCookie(cookie)
             }
-            NSUserDefaults .standardUserDefaults() .synchronize()
+            UserDefaults.standard .synchronize()
         }
         
-        browser = UIWebView.init(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
+        browser = UIWebView.init(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         browser?.scrollView.bounces = false
-        browser?.hidden = true
+        browser?.isHidden = true
         browser?.delegate = self
         
-        var pathUrl:String = (kv? .objectForKey("_DOMAIN_XIDI_MOA"))! as!String
+        var pathUrl:String = (kv? .object(forKey: "_DOMAIN_XIDI_MOA"))! as!String
         
         if pathUrl == "https://moa.xiditech.com" {
-            let datenow:NSDate = NSDate()
+            let datenow:Date = Date()
             let timesp:String = String(datenow .timeIntervalSince1970)
             pathUrl = "https://moa.xiditech.com/index.html?time=" + timesp
         }
         
-        browser?.loadRequest(NSURLRequest.init(URL: NSURL.init(string: pathUrl)!))
-        let token:String = NSUserDefaults .standardUserDefaults() .stringForKey("token")!
+        browser?.loadRequest(URLRequest.init(url: URL.init(string: pathUrl)!))
+        let token:String = UserDefaults.standard .string(forKey: "token")!
         
         let string1 = "var XIDIAPP = XIDIAPP || {};XIDIAPP.getTokenFromApp=function(){return '"
         let string2 = "'};"
         
         let  ScriptString:String = string1 + token + string2
-        
-        browser?.stringByEvaluatingJavaScriptFromString(ScriptString)
+        print(ScriptString);
+        browser?.stringByEvaluatingJavaScript(from: ScriptString)
         self .addSubview(browser!)
         
         //先是状态
-        stat = UILabel.init(frame: CGRectMake(0, frame.size.height/2-50, frame.size.width, 20))
+        stat = UILabel.init(frame: CGRect(x: 0, y: frame.size.height/2-50, width: frame.size.width, height: 20))
         stat?.text = "页面加载中"
-        stat?.textAlignment = .Center
+        stat?.textAlignment = .center
         self .addSubview(stat!)
         
-        refresh = UIButton.init(type: .Custom)
-        refresh?.hidden = true
-        refresh?.frame = CGRectMake(frame.size.width/2-45, frame.size.height/2-20, 90, 40)
-        refresh?.setTitle("请点击刷新", forState: .Normal)
-        refresh?.addTarget(self, action: #selector(BrowserView.refreshBrowser), forControlEvents: .TouchUpInside)
+        refresh = UIButton.init(type: .custom)
+        refresh?.isHidden = true
+        refresh?.frame = CGRect(x: frame.size.width/2-45, y: frame.size.height/2-20, width: 90, height: 40)
+        refresh?.setTitle("请点击刷新", for: UIControlState())
+        refresh?.addTarget(self, action: #selector(BrowserView.refreshBrowser), for: .touchUpInside)
         
-        indicator = UIActivityIndicatorView.init(frame: CGRectMake(frame.size.width/2-20, frame.size.height/2-20, 40, 40))
-        indicator?.activityIndicatorViewStyle = .WhiteLarge
+        indicator = UIActivityIndicatorView.init(frame: CGRect(x: frame.size.width/2-20, y: frame.size.height/2-20, width: 40, height: 40))
+        indicator?.activityIndicatorViewStyle = .whiteLarge
         indicator?.startAnimating()
-        indicator?.color = UIColor.grayColor()
+        indicator?.color = UIColor.gray
         indicator?.hidesWhenStopped = true
         self .addSubview(indicator!)
     }
@@ -82,51 +82,50 @@ class BrowserView: UIView ,UIWebViewDelegate{
     func cancelWeb() {
         browser?.stopLoading()
         stat?.text = "网络不太给力，加载失败。"
-        refresh?.hidden = false
-        stat?.hidden = false
+        refresh?.isHidden = false
+        stat?.isHidden = false
         
-        indicator?.hidden = true
+        indicator?.isHidden = true
     }
     
     func refreshBrowser() {
-        refresh?.hidden = true
-        indicator?.hidden = false
+        refresh?.isHidden = true
+        indicator?.isHidden = false
         indicator?.startAnimating()
         stat?.text = "页面加载中"
-        browser?.loadRequest(NSURLRequest.init(URL: NSURL.init(string: failUrl!)!))
+        browser?.loadRequest(URLRequest.init(url: URL.init(string: failUrl!)!))
         
-        let token:String = NSUserDefaults .standardUserDefaults() .stringForKey("token")!
+        let token:String = UserDefaults.standard .string(forKey: "token")!
         
         let string1 = "var XIDIAPP = XIDIAPP || {};XIDIAPP.getTokenFromApp=function(){return '"
         let string2 = "'};"
         
         let  ScriptString:String = string1 + token + string2
         
-        browser?.stringByEvaluatingJavaScriptFromString(ScriptString)
+        browser?.stringByEvaluatingJavaScript(from: ScriptString)
     }
     
     //UIWebViewDelegate
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        let absoluteString:String = request.URL!.absoluteString
-        let path:String = request.URL!.path!
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        let absoluteString:String = request.url!.absoluteString
+        let path:String = request.url!.path
         print("requrl:" + absoluteString + "\npath:" + path + "\n")
         
         return true
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         print("finish")
-        stat?.hidden = true
-        refresh?.hidden = true
-        indicator?.hidden = true
-        browser?.hidden = false
+        stat?.isHidden = true
+        refresh?.isHidden = true
+        indicator?.isHidden = true
+        browser?.isHidden = false
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print(error)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print(error.localizedDescription as Any)
+        
         self.cancelWeb()
-        failUrl! = error?.userInfo ["NSErrorFailingURLStringKey"]! as! String
-        print("cancel:" + failUrl!)
     }
 
 }

@@ -22,23 +22,23 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     var deviceCheckView : DeviceCheckView?
     var browserView : BrowserView?
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "currentView" {
-            switch String(change![NSKeyValueChangeNewKey]!) {
+            switch String(describing: change![NSKeyValueChangeKey.newKey]!) {
             case "2":
                 
-                NSNotificationCenter.defaultCenter() .addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+                NotificationCenter.default .addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
                 if (self.loginView == nil) {
-                    self.loginView = LoginView.init(frame: CGRectMake(0, 0, self.fwidth!, self.fheight!))
+                    self.loginView = LoginView.init(frame: CGRect(x: 0, y: 0, width: self.fwidth!, height: self.fheight!))
                 }
                 self.view .addSubview(self.loginView!)
                 break
             case "3":
                 
-                self.view.frame = UIScreen.mainScreen().bounds
+                self.view.frame = UIScreen.main.bounds
                 self.view.backgroundColor = UIColor.init(colorLiteralRed: 0xf8/255.0, green: 0xf8/255.0, blue: 0xf8/255.0, alpha: 1)
                 if (self.browserView == nil) {
-                    self.browserView = BrowserView.init(frame: CGRectMake(0, self.y!, self.fwidth!, self.fheight!-self.y!))
+                    self.browserView = BrowserView.init(frame: CGRect(x: 0, y: self.y!, width: self.fwidth!, height: self.fheight!-self.y!))
                 }
                 self.view .addSubview(self.browserView!)
                 
@@ -47,15 +47,15 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                 break
             }
         }
-        self.view .exchangeSubviewAtIndex(0, withSubviewAtIndex: 1)
+        self.view .exchangeSubview(at: 0, withSubviewAt: 1)
         
-        switch String(change![NSKeyValueChangeOldKey]!) {
+        switch String(describing: change![NSKeyValueChangeKey.oldKey]!) {
         case "1":
             deviceCheckView?.removeFromSuperview()
             break
         case "2":
             loginView?.removeFromSuperview()
-            NSNotificationCenter.defaultCenter() .removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+            NotificationCenter.default .removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
             break
             
         default:
@@ -63,33 +63,30 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         }
     }
     
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if (buttonIndex != 0) {
-            UIApplication.sharedApplication() .openURL(NSURL.init(string: "itms-services://?action=download-manifest&url=https://moa.xiditech.com/download/moa/moa.plist")!)
+            UIApplication.shared .openURL(URL.init(string: "itms-services://?action=download-manifest&url=https://moa.xiditech.com/download/moa/moa.plist")!)
         }
     }
     
-    func removeView(view:UIView) {
+    func removeView(_ view:UIView) {
         view .removeFromSuperview()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view, typically from a nib.
-        fwidth = UIScreen.mainScreen().bounds.size.width
-        fheight = UIScreen.mainScreen().bounds.size.height
-        y = UIApplication.sharedApplication() .statusBarFrame.size.height
+        fwidth = UIScreen.main.bounds.size.width
+        fheight = UIScreen.main.bounds.size.height
+        y = UIApplication.shared .statusBarFrame.size.height
         
-        let cs = "changeView".UTF8String
-        let buffer = UnsafeMutablePointer<Int8>(cs)
+        Config.shared() .addObserver(self, forKeyPath: "currentView", options: [.new,.old], context: nil)
         
-        Config.sharedConfig() .addObserver(self, forKeyPath: "currentView", options: [.New,.Old], context: buffer)
-        
-        deviceCheckView = DeviceCheckView.init(frame: UIScreen.mainScreen().bounds)
+        deviceCheckView = DeviceCheckView.init(frame: UIScreen.main.bounds)
         self.view .addSubview(deviceCheckView!)
         
-        let updateAvailable:Bool = Config.sharedConfig().updateMoa()
+        let updateAvailable:Bool = Config.shared().updateMoa()
 
         if (updateAvailable == true) {
             let updateAlert:UIAlertView = UIAlertView.init(title: "MOA更新", message: "MOA新版本已经发布，是否更新？", delegate: self , cancelButtonTitle: "不更新" , otherButtonTitles: "更新")
@@ -105,13 +102,13 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     }
     
     /*ipad 不旋转。*/
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
-    func keyboardWillShow(note:NSNotification)  {
-        let userInfo:AnyObject = note.userInfo!
-        let kbSize:CGSize  = (userInfo[UIKeyboardFrameBeginUserInfoKey]!?.CGRectValue().size)!
+    func keyboardWillShow(_ note:Notification)  {
+        let userInfo:AnyObject = note.userInfo! as AnyObject
+        let kbSize:CGSize  = ((userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size)
         loginView?.keyboardShow(kbSize.height)
     }
 

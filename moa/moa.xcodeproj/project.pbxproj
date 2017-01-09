@@ -252,13 +252,16 @@
 					128C17281D5069D100F9A93D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 97N7Y7Y4VE;
+						LastSwiftMigration = 0810;
 					};
 					128C173C1D5069D100F9A93D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 128C17281D5069D100F9A93D;
 					};
 					128C17471D5069D100F9A93D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 128C17281D5069D100F9A93D;
 					};
 				};
@@ -478,9 +481,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidibuy.moa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0bba0d52-c749-47da-bb45-95a59f26d831";
+				PROVISIONING_PROFILE = "2934c29e-4778-4c6e-b6b8-db47a08b172f";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS-dev";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "moa/moa-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -491,13 +497,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xidi E-Commerce Co. Ltd.";
+				DEVELOPMENT_TEAM = 97N7Y7Y4VE;
 				INFOPLIST_FILE = moa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidibuy.moa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dc6d0b47-434a-4d96-8d93-27c1b67a05ed";
+				PROVISIONING_PROFILE = "37b73c2e-9504-49d4-a2af-c47cce300364";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.xidibuy.moa";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "moa/moa-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -509,6 +519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xidibuy.moaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moa.app/moa";
 			};
 			name = Debug;
@@ -521,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xidibuy.moaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moa.app/moa";
 			};
 			name = Release;
@@ -532,6 +544,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xidibuy.moaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = moa;
 			};
 			name = Debug;
@@ -543,6 +556,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xidibuy.moaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = moa;
 			};
 			name = Release;

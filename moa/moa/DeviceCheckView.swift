@@ -23,74 +23,74 @@ class DeviceCheckView: UIView {
         super.init(frame: frame)
         let fwidth:CGFloat = frame.size.width;
         let fheight:CGFloat = frame.size.height;
-        kv = Config .sharedConfig().kv
-        let cd:UIDevice = UIDevice.currentDevice()
-        uuid = cd.identifierForVendor?.UUIDString.lowercaseString
-        mac = Config .sharedConfig() .trim2mac(uuid)
-        kv?.setObject(mac!, forKey: "mac")
+        kv = Config .shared().kv
+        let cd:UIDevice = UIDevice.current
+        uuid = cd.identifierForVendor?.uuidString.lowercased()
+        mac = Config .shared() .trim2mac(uuid)
+        kv?.setObject(mac!, forKey: "mac" as NSCopying)
         
         //背景色
         let gradient:CAGradientLayer = CAGradientLayer()
-        gradient.frame = UIScreen.mainScreen().bounds
-        gradient.colors = [UIColor.whiteColor().CGColor, UIColor.init(colorLiteralRed: 0x5f/255.0, green: 0x5e/255.0, blue: 0x65/255.0, alpha: 1).CGColor]
-        self.layer .insertSublayer(gradient, atIndex: 0)
+        gradient.frame = UIScreen.main.bounds
+        gradient.colors = [UIColor.white.cgColor, UIColor.init(colorLiteralRed: 0x5f/255.0, green: 0x5e/255.0, blue: 0x65/255.0, alpha: 1).cgColor]
+        self.layer .insertSublayer(gradient, at: 0)
         
         //背景图片
         let bgimg:UIImageView = UIImageView.init(image: UIImage.init(named: "logo-index"))
-        bgimg.frame = CGRectMake(fwidth/2-52, fheight/2-100, 104, 200)
+        bgimg.frame = CGRect(x: fwidth/2-52, y: fheight/2-100, width: 104, height: 200)
         self .addSubview(bgimg)
         
         //进度显示器
-        indicator = UIActivityIndicatorView.init(frame: CGRectMake(fwidth/2-20, fheight/2, 40, 40))
-        indicator?.activityIndicatorViewStyle = .WhiteLarge
+        indicator = UIActivityIndicatorView.init(frame: CGRect(x: fwidth/2-20, y: fheight/2, width: 40, height: 40))
+        indicator?.activityIndicatorViewStyle = .whiteLarge
         indicator?.startAnimating()
         indicator?.hidesWhenStopped = true
         self .addSubview(indicator!)
         
         //两个隐藏的按钮
-        saveDeviceButton = UIButton.init(type: .Custom)
-        saveDeviceButton?.setTitle("申请设备认证", forState: .Normal)
-        saveDeviceButton?.frame = CGRectMake(fwidth/2-65, fheight/2+3, 130, 40)
-        saveDeviceButton?.hidden = true
+        saveDeviceButton = UIButton.init(type: .custom)
+        saveDeviceButton?.setTitle("申请设备认证", for: UIControlState())
+        saveDeviceButton?.frame = CGRect(x: fwidth/2-65, y: fheight/2+3, width: 130, height: 40)
+        saveDeviceButton?.isHidden = true
         self .addSubview(saveDeviceButton!)
-        saveDeviceButton?.addTarget(self, action: #selector(DeviceCheckView.deviceSave), forControlEvents: .TouchUpInside)
+        saveDeviceButton?.addTarget(self, action: #selector(DeviceCheckView.deviceSave), for: .touchUpInside)
         
-        recheckButton = UIButton.init(type: .Custom)
-        recheckButton?.setTitle("设备此认证", forState: .Normal)
-        recheckButton?.frame = CGRectMake(fwidth/2-50, fheight/2+3, 100, 40)
-        recheckButton?.hidden = true
+        recheckButton = UIButton.init(type: .custom)
+        recheckButton?.setTitle("设备此认证", for: UIControlState())
+        recheckButton?.frame = CGRect(x: fwidth/2-50, y: fheight/2+3, width: 100, height: 40)
+        recheckButton?.isHidden = true
         self .addSubview(recheckButton!)
-        recheckButton?.addTarget(self, action: #selector(DeviceCheckView.deviceCheck), forControlEvents: .TouchUpInside)
+        recheckButton?.addTarget(self, action: #selector(DeviceCheckView.deviceCheck), for: .touchUpInside)
         
-        statLabel = UILabel.init(frame: CGRectMake(0, fheight/2-55, fwidth, 50))
-        statLabel?.font = UIFont.boldSystemFontOfSize(statLabel!.font.pointSize)
-        statLabel?.textAlignment = .Center
-        statLabel?.textColor = UIColor.redColor()
+        statLabel = UILabel.init(frame: CGRect(x: 0, y: fheight/2-55, width: fwidth, height: 50))
+        statLabel?.font = UIFont.boldSystemFont(ofSize: statLabel!.font.pointSize)
+        statLabel?.textAlignment = .center
+        statLabel?.textColor = UIColor.red
         statLabel?.text = "正在认证设备"
         self .addSubview(statLabel!)
         
-        idLabel = UILabel.init(frame: CGRectMake(0, fheight/2-30, fwidth, 50))
-        idLabel?.textAlignment = .Center
-        idLabel?.textColor = UIColor.redColor()
+        idLabel = UILabel.init(frame: CGRect(x: 0, y: fheight/2-30, width: fwidth, height: 50))
+        idLabel?.textAlignment = .center
+        idLabel?.textColor = UIColor.red
         idLabel?.text = "设备号：" + mac!
-        idLabel?.hidden = true
+        idLabel?.isHidden = true
         self .addSubview(idLabel!)
         
-        let copyright:UILabel = UILabel.init(frame: CGRectMake(0, fheight-80, fwidth, 40))
-        copyright.textAlignment = .Center
-        copyright.textColor = UIColor.whiteColor()
-        let currentDate:NSDate = NSDate()
-        let calendar:NSCalendar = NSCalendar.currentCalendar()
-        let components:NSDateComponents = calendar .components([.Year,.Month,.Day], fromDate: currentDate) // Get necessary date components
+        let copyright:UILabel = UILabel.init(frame: CGRect(x: 0, y: fheight-80, width: fwidth, height: 40))
+        copyright.textAlignment = .center
+        copyright.textColor = UIColor.white
+        let currentDate:Date = Date()
+        let calendar:Calendar = Calendar.current
+        let components:DateComponents = (calendar as NSCalendar) .components([.year,.month,.day], from: currentDate) // Get necessary date components
         
         let string1:String = "©"
-        let yearString = String(components.year)
+        let yearString = String(describing: components.year)
         let string2:String = " Powered by xidibuy.com"
         
         copyright.text = string1 + yearString + string2
         self .addSubview(copyright)
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self .deviceCheck()
         }
     }
@@ -100,22 +100,22 @@ class DeviceCheckView: UIView {
     }
     
     /*check和save的数据包是一样的，只是地址不一样。*/
-    func buildDeviceRequestWithUrl(url:String) -> NSMutableURLRequest {
-        let cd:UIDevice = UIDevice.currentDevice()
-        let sign:String = Config.sharedConfig().md5(mac! + ((kv? .objectForKey("_DATA_XIDIMOA_SIGN"))! as! String))
-        let nameString:String = cd.name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
-        let modelString:String = cd.model.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
-        let systemNameString:String = cd.systemName.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
-        let systemVersionString:String = cd.systemVersion.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+    func buildDeviceRequestWithUrl(_ url:String) -> NSMutableURLRequest {
+        let cd:UIDevice = UIDevice.current
+        let sign:String = Config.shared().md5(mac! + ((kv? .object(forKey: "_DATA_XIDIMOA_SIGN"))! as! String))
+        let nameString:String = cd.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
+        let modelString:String = cd.model.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
+        let systemNameString:String = cd.systemName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
+        let systemVersionString:String = cd.systemVersion.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
         let dataString:String = "uuid=" + uuid! + "&mac=" + mac! + "&sign=" + sign + "&name=" + nameString + "&model=" + modelString + "&systemName=" + systemNameString + "n" + systemVersionString
-        let postData:NSData = dataString .dataUsingEncoding(NSUTF8StringEncoding)!
+        let postData:Data = dataString .data(using: String.Encoding.utf8)!
         
-        let request:NSMutableURLRequest = NSMutableURLRequest.init(URL: NSURL.init(string: url)!)
+        let request:NSMutableURLRequest = NSMutableURLRequest.init(url: URL.init(string: url)!)
         
-        request.HTTPMethod = "POST"
-        request.setValue(String(postData.length), forHTTPHeaderField: "Content-Length")
+        request.httpMethod = "POST"
+        request.setValue(String(postData.count), forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = postData
+        request.httpBody = postData
         
         return request
     }
@@ -123,54 +123,56 @@ class DeviceCheckView: UIView {
     func deviceCheck() {
         statLabel?.text = "正在认证设备"
         indicator?.startAnimating()
-        recheckButton?.hidden = true
-        saveDeviceButton?.hidden = true
-        recheckButton?.enabled = false
+        recheckButton?.isHidden = true
+        saveDeviceButton?.isHidden = true
+        recheckButton?.isEnabled = false
         
-        NSURLConnection .sendAsynchronousRequest(self.buildDeviceRequestWithUrl((kv? .objectForKey("_URL_AUTH_DEVICE"))! as!String), queue: NSOperationQueue.init(), completionHandler:{
+        NSURLConnection .sendAsynchronousRequest(self.buildDeviceRequestWithUrl((kv? .object(forKey: "_URL_AUTH_DEVICE"))! as!String) as URLRequest, queue: OperationQueue.init(), completionHandler:{
                 (response, data, error) -> Void in
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     self.indicator?.stopAnimating()
                     if ((error) != nil) {
                         //Handle Error here
                         self.statLabel?.text = "网络连接出错，请稍后重试。"
-                        self.recheckButton?.hidden = false
-                        print(error)
+                        self.recheckButton?.isHidden = false
+                        print(error?.localizedDescription as Any)
                         
                     }else{
                         //Handle data in NSData type
                         
                         do {
-                            let jsonObjects:AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
+                            let jsonObjects:Any = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.mutableContainers)
+                            let jsonDic = jsonObjects as!Dictionary<String, Any>
+                            let code = jsonDic["code"] as!NSNumber
                     
-                            if (jsonObjects .objectForKey("code") as! NSNumber) == 0 {
+                            if code == 0 {
                                 //登录成功
                                 self.statLabel?.text = "设备已认证，正在登录。"
-                                NSUserDefaults .standardUserDefaults() .setBool(false, forKey: "waitingForBind")
-                                NSUserDefaults .standardUserDefaults() .synchronize()
+                                UserDefaults.standard .set(false, forKey: "waitingForBind")
+                                UserDefaults.standard .synchronize()
                                 
-                                Config.sharedConfig() .setValue("2", forKey: "currentView")
+                                Config.shared() .setValue("2", forKey: "currentView")
                                 
                             }else{
-                                self.idLabel?.hidden = false
-                                if NSUserDefaults .standardUserDefaults() .boolForKey("waitingForBind") {
+                                self.idLabel?.isHidden = false
+                                if UserDefaults.standard .bool(forKey: "waitingForBind") {
                                     //waiting for bind
                                     self.statLabel?.text = "设备认证审核中…"
-                                    self.recheckButton?.hidden = false
+                                    self.recheckButton?.isHidden = false
                                 }else{
                                     self.statLabel?.text = "设备未认证"
-                                    self.saveDeviceButton?.hidden = false
+                                    self.saveDeviceButton?.isHidden = false
                                 }
                             }
                             
                         } catch {
                             // deal with error
                             self.statLabel?.text = "解析服务器数据错误，请稍后重试。"
-                            self.recheckButton?.hidden = false
+                            self.recheckButton?.isHidden = false
                         }
                     }
                     
-                    self.recheckButton?.enabled = true
+                    self.recheckButton?.isEnabled = true
                 }
 
             })
@@ -179,44 +181,46 @@ class DeviceCheckView: UIView {
     func deviceSave() {
         statLabel?.text = "正在注册设备:\n" + mac!
         indicator?.startAnimating()
-        recheckButton?.hidden = true
-        saveDeviceButton?.hidden = true
-        saveDeviceButton?.enabled = false
+        recheckButton?.isHidden = true
+        saveDeviceButton?.isHidden = true
+        saveDeviceButton?.isEnabled = false
         
-        NSURLConnection .sendAsynchronousRequest(self.buildDeviceRequestWithUrl((kv? .objectForKey("_URL_AUTH_DEVICE_APPLY"))! as! String), queue: NSOperationQueue.init(), completionHandler:{
+        NSURLConnection .sendAsynchronousRequest(self.buildDeviceRequestWithUrl((kv? .object(forKey: "_URL_AUTH_DEVICE_APPLY"))! as! String) as URLRequest, queue: OperationQueue.init(), completionHandler:{
             (response, data, error) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.indicator?.stopAnimating()
                 if ((error) != nil) {
                     //Handle Error here
                     self.statLabel?.text = "网络连接出错，请稍后重试。"
-                    self.saveDeviceButton?.hidden = false
-                    print(error)
+                    self.saveDeviceButton?.isHidden = false
+                    print(error?.localizedDescription as Any)
                     
                 }else{
                     //Handle data in NSData type
                     do {
-                        let jsonObjects:AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
-                        if (jsonObjects .objectForKey("code") as! NSNumber) == 0 {
+                        let jsonObjects:Any = try JSONSerialization.jsonObject(with: data!, options:JSONSerialization.ReadingOptions.mutableContainers)
+                        let jsonDic = jsonObjects as!Dictionary<String,Any>
+                        let code = jsonDic["code"] as!NSNumber
+                        if code == 0 {
                             //登录成功
                             self.statLabel?.text = "设备注册成功，请等待审核。"
-                            self.recheckButton?.hidden = false
-                            NSUserDefaults .standardUserDefaults() .setBool(true, forKey: "waitingForBind")
-                            NSUserDefaults .standardUserDefaults() .synchronize()
+                            self.recheckButton?.isHidden = false
+                            UserDefaults.standard .set(true, forKey: "waitingForBind")
+                            UserDefaults.standard .synchronize()
                             
                         }else{
                             self.statLabel?.text = "注册设备失败。"
-                            self.saveDeviceButton?.hidden = false
+                            self.saveDeviceButton?.isHidden = false
                         }
                         
                     } catch {
                         // deal with error
                         self.statLabel?.text = "解析服务器数据错误，请稍后重试。"
-                        self.saveDeviceButton?.hidden = false
+                        self.saveDeviceButton?.isHidden = false
                     }
                 }
                 
-                self.saveDeviceButton?.enabled = true
+                self.saveDeviceButton?.isEnabled = true
             }
             
         })
