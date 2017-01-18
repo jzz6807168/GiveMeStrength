@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>moa.xcscheme</key>
+		<key>MOA.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>128C17281D5069D100F9A93D</key>
+		<key>123AC60E1E28DB0E00113D2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>128C173C1D5069D100F9A93D</key>
+		<key>123AC6221E28DB0E00113D2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>128C17471D5069D100F9A93D</key>
+		<key>123AC62D1E28DB0E00113D2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

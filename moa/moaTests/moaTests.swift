@@ -1,15 +1,15 @@
 //
-//  moaTests.swift
-//  moaTests
+//  MOATests.swift
+//  MOATests
 //
-//  Created by qq on 16/8/2.
-//  Copyright © 2016年 Xidi E-commerce Co. Ltd. All rights reserved.
+//  Created by qq on 17/1/13.
+//  Copyright © 2017年 Xidi E-commerce Co. Ltd. All rights reserved.
 //
 
 import XCTest
-@testable import moa
+@testable import MOA
 
-class moaTests: XCTestCase {
+class MOATests: XCTestCase {
     
     override func setUp() {
         super.setUp()

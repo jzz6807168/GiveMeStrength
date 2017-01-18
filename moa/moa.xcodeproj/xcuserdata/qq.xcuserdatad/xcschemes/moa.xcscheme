@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "128C17281D5069D100F9A93D"
-               BuildableName = "moa.app"
-               BlueprintName = "moa"
-               ReferencedContainer = "container:moa.xcodeproj">
+               BlueprintIdentifier = "123AC60E1E28DB0E00113D2C"
+               BuildableName = "MOA.app"
+               BlueprintName = "MOA"
+               ReferencedContainer = "container:MOA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "128C173C1D5069D100F9A93D"
-               BuildableName = "moaTests.xctest"
-               BlueprintName = "moaTests"
-               ReferencedContainer = "container:moa.xcodeproj">
+               BlueprintIdentifier = "123AC6221E28DB0E00113D2C"
+               BuildableName = "MOATests.xctest"
+               BlueprintName = "MOATests"
+               ReferencedContainer = "container:MOA.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "128C17471D5069D100F9A93D"
-               BuildableName = "moaUITests.xctest"
-               BlueprintName = "moaUITests"
-               ReferencedContainer = "container:moa.xcodeproj">
+               BlueprintIdentifier = "123AC62D1E28DB0E00113D2C"
+               BuildableName = "MOAUITests.xctest"
+               BlueprintName = "MOAUITests"
+               ReferencedContainer = "container:MOA.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "128C17281D5069D100F9A93D"
-            BuildableName = "moa.app"
-            BlueprintName = "moa"
-            ReferencedContainer = "container:moa.xcodeproj">
+            BlueprintIdentifier = "123AC60E1E28DB0E00113D2C"
+            BuildableName = "MOA.app"
+            BlueprintName = "MOA"
+            ReferencedContainer = "container:MOA.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "128C17281D5069D100F9A93D"
-            BuildableName = "moa.app"
-            BlueprintName = "moa"
-            ReferencedContainer = "container:moa.xcodeproj">
+            BlueprintIdentifier = "123AC60E1E28DB0E00113D2C"
+            BuildableName = "MOA.app"
+            BlueprintName = "MOA"
+            ReferencedContainer = "container:MOA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "128C17281D5069D100F9A93D"
-            BuildableName = "moa.app"
-            BlueprintName = "moa"
-            ReferencedContainer = "container:moa.xcodeproj">
+            BlueprintIdentifier = "123AC60E1E28DB0E00113D2C"
+            BuildableName = "MOA.app"
+            BlueprintName = "MOA"
+            ReferencedContainer = "container:MOA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

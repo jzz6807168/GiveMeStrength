@@ -1,14 +1,14 @@
 //
-//  moaUITests.swift
-//  moaUITests
+//  MOAUITests.swift
+//  MOAUITests
 //
-//  Created by qq on 16/8/2.
-//  Copyright © 2016年 Xidi E-commerce Co. Ltd. All rights reserved.
+//  Created by qq on 17/1/13.
+//  Copyright © 2017年 Xidi E-commerce Co. Ltd. All rights reserved.
 //
 
 import XCTest
 
-class moaUITests: XCTestCase {
+class MOAUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
