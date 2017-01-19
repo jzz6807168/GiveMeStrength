@@ -11,7 +11,6 @@ import IDZSwiftCommonCrypto
 import SwiftyJSON
 
 class DeviceCheckView: UIView {
-    var kv: NSMutableDictionary?
     var uuid: String?
     var mac: String?
     var indicator: UIActivityIndicatorView?
@@ -82,7 +81,7 @@ class DeviceCheckView: UIView {
         copyright.textColor = UIColor.white
         let currentDate:Date = Date()
         let calendar:Calendar = Calendar.current
-        let components:DateComponents = (calendar as NSCalendar) .components([.year,.month,.day], from: currentDate) // Get necessary date components
+        let components:DateComponents = (calendar as NSCalendar) .components([.year,.month,.day], from: currentDate)
         
         let string1:String = "©"
         let yearString = String(describing: components.year)
@@ -91,9 +90,7 @@ class DeviceCheckView: UIView {
         copyright.text = string1 + yearString + string2
         self .addSubview(copyright)
         
-        DispatchQueue.main.async {
-            self .deviceCheck()
-        }
+        self .deviceCheck()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -163,7 +160,6 @@ class DeviceCheckView: UIView {
         NetworkManager.sharedInstance.postRequest(urlString: "http://moa.xiditech.com/device/save", params: dict as [String : AnyObject]?, success: { (successResult) in
             let json = JSON(successResult)
             if json["code"] == 0 {
-                //登录成功
                 self.statLabel?.text = "设备注册成功，请等待审核。"
                 self.recheckButton?.isHidden = false
                 UserDefaults.standard .set(true, forKey: "waitingForBind")

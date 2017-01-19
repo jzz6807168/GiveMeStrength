@@ -9,6 +9,7 @@
 import UIKit
 import IDZSwiftCommonCrypto
 import SwiftyJSON
+import Foundation
 
 private let ConfigsharedConfig = Config()
 
@@ -38,10 +39,9 @@ extension Config {
             let items = json["items"].array
             let lastjson = items?.last
             
-            let newversion = lastjson?["metadata"]["bundle-version"].description
+            let newversion:String = (lastjson?["metadata"]["bundle-version"].description)!
             let currentversion:String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-            
-            updateAvailable = (currentversion == newversion)
+            updateAvailable = ((newversion as NSString).floatValue > (currentversion as NSString).floatValue)
             break
         default:
             updateAvailable = false

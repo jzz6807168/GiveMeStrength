@@ -9,14 +9,11 @@
 import UIKit
 
 class BrowserView: UIView ,UIWebViewDelegate{
-    var kv: NSMutableDictionary?
     var browser: UIWebView?
     var stat: UILabel?
     var refresh: UIButton?
     var indicator: UIActivityIndicatorView?
-    var failUrl:String?
-    
-    
+    var lastRequest:NSURLRequest?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,8 +89,7 @@ class BrowserView: UIView ,UIWebViewDelegate{
         indicator?.isHidden = false
         indicator?.startAnimating()
         stat?.text = "页面加载中"
-        browser?.loadRequest(URLRequest.init(url: URL.init(string: failUrl!)!))
-        
+        browser?.loadRequest(lastRequest as! URLRequest)
         let token:String = UserDefaults.standard .string(forKey: "token")!
         
         let string1 = "var XIDIAPP = XIDIAPP || {};XIDIAPP.getTokenFromApp=function(){return '"
@@ -119,11 +115,14 @@ class BrowserView: UIView ,UIWebViewDelegate{
         refresh?.isHidden = true
         indicator?.isHidden = true
         browser?.isHidden = false
+        
+        if browser?.request?.url?.host == "moa.xiditech.com" {
+            lastRequest = browser?.request as NSURLRequest?
+        }
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print(error.localizedDescription as Any)
-        
         self.cancelWeb()
     }
     

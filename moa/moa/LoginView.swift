@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 import SwiftyJSON
 import IDZSwiftCommonCrypto
 
@@ -16,14 +15,10 @@ class LoginView: UIView {
     var stat : UILabel?
     var name : UITextField?
     var password : UITextField?
-    var buttonMarginBottom: CGFloat?
-    var kv: NSMutableDictionary?
-    
+    var buttonMarginBottom: CGFloat?    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.isHidden = true
         self.backgroundColor = UIColor .init(colorLiteralRed: 0xf1/255.0, green: 0xf1/255.0, blue: 0xf1/255.0, alpha: 1)
         self.create()
     }
@@ -33,6 +28,7 @@ class LoginView: UIView {
     }
     
     func create() {
+        self.isHidden = true
         let fwidth:CGFloat = frame.size.width;
         let fheight:CGFloat = frame.size.height;
         let mwidth:CGFloat = fwidth > 414 ? 414 : fwidth//对于iPhone6plus以及以下分辨率的都是全屏，其他的按最大尺寸。
@@ -118,10 +114,10 @@ class LoginView: UIView {
             let macStr:String = UserDefaults.standard .object(forKey: "mac")! as! String
             
             let key = arrayFrom(string: "j14mz5RT")
-            let plainText = "123456"
+            let plainText = password?.text
             
             let cryptor = Cryptor(operation:.encrypt, algorithm:.des, options:.PKCS7Padding, key:key, iv:key)
-            let cipherText = cryptor.update(string: plainText)?.final()
+            let cipherText = cryptor.update(string: plainText!)?.final()
             print(hexString(fromArray: cipherText!, uppercase: false))
             
             let passwordStr:String = hexString(fromArray: cipherText!, uppercase: false)

@@ -294,7 +294,7 @@
 					123AC60E1E28DB0E00113D2C = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 97N7Y7Y4VE;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					123AC6221E28DB0E00113D2C = {
 						CreatedOnToolsVersion = 8.1;
@@ -526,8 +526,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ivan hu (2K54GZ593R)";
+				DEVELOPMENT_TEAM = 97N7Y7Y4VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MOA",
@@ -537,8 +537,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidibuy.moa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f698febd-d4f3-4a5b-a48e-801e0d019ef4";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS-dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -547,8 +547,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xidi E-Commerce Co. Ltd.";
+				DEVELOPMENT_TEAM = 97N7Y7Y4VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MOA",
@@ -558,8 +558,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidibuy.moa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "37b73c2e-9504-49d4-a2af-c47cce300364";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.xidibuy.moa";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

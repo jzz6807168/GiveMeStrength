@@ -86,7 +86,6 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         }
         self.view .exchangeSubview(at: 0, withSubviewAt: 1)
 
-        print(noti.object as!String)
         if oldKey == "1" {
             deviceCheckView?.removeFromSuperview()
         }else if oldKey == "2"{
