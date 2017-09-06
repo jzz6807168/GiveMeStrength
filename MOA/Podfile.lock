@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.5.0)
+  - IDZSwiftCommonCrypto (0.9.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - IDZSwiftCommonCrypto
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  IDZSwiftCommonCrypto: 671867eabeeee3a2c2395c2152fe3d4349ffc062
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 0bc078eb19691f960a0d9db0fa81ac2396ec42c1
+
+COCOAPODS: 1.0.1

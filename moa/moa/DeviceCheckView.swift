@@ -49,18 +49,18 @@ class DeviceCheckView: UIView {
         
         //两个隐藏的按钮
         saveDeviceButton = UIButton.init(type: .custom)
-        saveDeviceButton?.setTitle("申请设备认证", for: UIControlState())
+        saveDeviceButton?.setTitle("申请设备认证", for: UIControlState.normal)
         saveDeviceButton?.frame = CGRect(x: fwidth/2-65, y: fheight/2+3, width: 130, height: 40)
         saveDeviceButton?.isHidden = true
         self .addSubview(saveDeviceButton!)
-        saveDeviceButton?.addTarget(self, action: #selector(DeviceCheckView.deviceSave), for: .touchUpInside)
+        saveDeviceButton?.addTarget(self, action: #selector(deviceSave), for: .touchUpInside)
         
         recheckButton = UIButton.init(type: .custom)
-        recheckButton?.setTitle("设备此认证", for: UIControlState())
+        recheckButton?.setTitle("设备此认证", for: UIControlState.normal)
         recheckButton?.frame = CGRect(x: fwidth/2-50, y: fheight/2+3, width: 100, height: 40)
         recheckButton?.isHidden = true
         self .addSubview(recheckButton!)
-        recheckButton?.addTarget(self, action: #selector(DeviceCheckView.deviceCheck), for: .touchUpInside)
+        recheckButton?.addTarget(self, action: #selector(deviceCheck), for: .touchUpInside)
         
         statLabel = UILabel.init(frame: CGRect(x: 0, y: fheight/2-55, width: fwidth, height: 50))
         statLabel?.font = UIFont.boldSystemFont(ofSize: statLabel!.font.pointSize)
@@ -116,6 +116,8 @@ class DeviceCheckView: UIView {
         let dict = ["uuid":uuid!, "mac":mac!, "sign":sign, "name":nameString, "model":modelString, "systemName":systemNameString + "n" + systemVersionString]
         NetworkManager.sharedInstance.postRequest(urlString: "http://moa.xiditech.com/device/check", params: dict as [String : AnyObject]?, success: { (successResult) in
             let json = JSON(successResult)
+            self.indicator?.stopAnimating()
+            self.recheckButton?.isEnabled = true;
             if json["code"] == 0 {
                 self.statLabel?.text = "设备已认证，正在登录。"
                 UserDefaults.standard .set(false, forKey: "waitingForBind")
@@ -134,8 +136,10 @@ class DeviceCheckView: UIView {
                 }
             }
         }, failture: { (errorResult) in
+            self.indicator?.stopAnimating()
             self.statLabel?.text = "网络连接出错，请稍后重试。"
             self.recheckButton?.isHidden = false
+            self.recheckButton?.isEnabled = true;
             print(errorResult)
         })
     }
@@ -154,11 +158,14 @@ class DeviceCheckView: UIView {
         let modelString:String = cd.model.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
         let systemNameString:String = cd.systemName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
         let systemVersionString:String = cd.systemVersion.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
+        let deviceToken:String! = UserDefaults.standard .string(forKey: "deviceToken")
         
-        let dict = ["uuid":uuid!, "mac":mac!, "sign":sign, "name":nameString, "model":modelString, "systemName":systemNameString + "n" + systemVersionString]
+        let dict = ["uuid":uuid!, "mac":mac!, "sign":sign, "name":nameString, "model":modelString, "systemName":systemNameString + "n" + systemVersionString, "deviceToken":deviceToken]
         
         NetworkManager.sharedInstance.postRequest(urlString: "http://moa.xiditech.com/device/save", params: dict as [String : AnyObject]?, success: { (successResult) in
             let json = JSON(successResult)
+            self.indicator?.stopAnimating()
+            self.saveDeviceButton?.isEnabled = true
             if json["code"] == 0 {
                 self.statLabel?.text = "设备注册成功，请等待审核。"
                 self.recheckButton?.isHidden = false
@@ -171,6 +178,8 @@ class DeviceCheckView: UIView {
             }
             
         }, failture: { (errorResult) in
+            self.indicator?.stopAnimating()
+            self.saveDeviceButton?.isEnabled = true
             self.statLabel?.text = "网络连接出错，请稍后重试。"
             self.saveDeviceButton?.isHidden = false
             print(errorResult)

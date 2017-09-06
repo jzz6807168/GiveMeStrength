@@ -97,7 +97,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if (buttonIndex != 0) {
-            UIApplication.shared .openURL(URL.init(string: "itms-services://?action=download-manifest&url=https://moa.xiditech.com/download/moa/moa.plist")!)
+            UIApplication.shared .openURL(URL.init(string: "itms-services://?action=download-manifest&url=http://moa.xiditech.com/download/moa/moa.plist")!)
         }
     }
     

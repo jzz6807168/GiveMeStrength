@@ -18,6 +18,7 @@ class BrowserView: UIView ,UIWebViewDelegate{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = UIColor.white
         //clear cookie
         let cookies:Array = HTTPCookieStorage.shared.cookies!
         if cookies.isEmpty == false {
@@ -32,13 +33,15 @@ class BrowserView: UIView ,UIWebViewDelegate{
         browser?.isHidden = true
         browser?.delegate = self
         
-        var pathUrl:String = "https://moa.xiditech.com"
+        var pathUrl:String = "http://moa.xiditech.com"
         
         if pathUrl == "https://moa.xiditech.com" {
             let datenow:Date = Date()
             let timesp:String = String(datenow .timeIntervalSince1970)
             pathUrl = "https://moa.xiditech.com/index.html?time=" + timesp
         }
+        
+        lastRequest = URLRequest.init(url: URL.init(string: pathUrl)!) as NSURLRequest?;
         
         browser?.loadRequest(URLRequest.init(url: URL.init(string: pathUrl)!))
         let token:String = UserDefaults.standard .string(forKey: "token")!
@@ -59,9 +62,11 @@ class BrowserView: UIView ,UIWebViewDelegate{
         
         refresh = UIButton.init(type: .custom)
         refresh?.isHidden = true
-        refresh?.frame = CGRect(x: frame.size.width/2-45, y: frame.size.height/2-20, width: 90, height: 40)
-        refresh?.setTitle("请点击刷新", for: UIControlState())
-        refresh?.addTarget(self, action: #selector(BrowserView.refreshBrowser), for: .touchUpInside)
+        refresh?.frame = CGRect(x: frame.size.width/2-55, y: frame.size.height/2-20, width: 110, height: 40)
+        refresh?.setTitle("请点击刷新", for: UIControlState.normal)
+        refresh?.setTitleColor(UIColor.black, for: UIControlState.normal)
+        refresh?.addTarget(self, action: #selector(refreshBrowser), for: .touchUpInside)
+        self .addSubview(refresh!)
         
         indicator = UIActivityIndicatorView.init(frame: CGRect(x: frame.size.width/2-20, y: frame.size.height/2-20, width: 40, height: 40))
         indicator?.activityIndicatorViewStyle = .whiteLarge

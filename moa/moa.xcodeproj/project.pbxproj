@@ -11,7 +11,6 @@
 		121EEFF21E2F4CDC00D1B7FE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121EEFF11E2F4CDC00D1B7FE /* Config.swift */; };
 		121EEFF41E2F51C300D1B7FE /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121EEFF31E2F51C300D1B7FE /* BrowserView.swift */; };
 		121EEFF61E2F51D800D1B7FE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121EEFF51E2F51D800D1B7FE /* LoginView.swift */; };
-		121EEFF81E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121EEFF71E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework */; };
 		123AC6131E28DB0E00113D2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123AC6121E28DB0E00113D2C /* AppDelegate.swift */; };
 		123AC6151E28DB0E00113D2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123AC6141E28DB0E00113D2C /* ViewController.swift */; };
 		123AC6181E28DB0E00113D2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123AC6161E28DB0E00113D2C /* Main.storyboard */; };
@@ -19,19 +18,14 @@
 		123AC61D1E28DB0E00113D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123AC61B1E28DB0E00113D2C /* LaunchScreen.storyboard */; };
 		123AC6281E28DB0E00113D2C /* MOATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123AC6271E28DB0E00113D2C /* MOATests.swift */; };
 		123AC6331E28DB0E00113D2C /* MOAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123AC6321E28DB0E00113D2C /* MOAUITests.swift */; };
-		123AC6421E28DBC500113D2C /* IDZSwiftCommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123AC6401E28DBB400113D2C /* IDZSwiftCommonCrypto.framework */; };
 		123AC6511E2DF35100113D2C /* DeviceCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123AC6501E2DF35100113D2C /* DeviceCheckView.swift */; };
-		125009AA1E2F626900303DEE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125009A91E2F626900303DEE /* Alamofire.framework */; };
-		125009AB1E2F627200303DEE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 125009A91E2F626900303DEE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		125009AC1E2F627600303DEE /* IDZSwiftCommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 121EEFF71E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		125009AE1E2F632900303DEE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125009AD1E2F632900303DEE /* SwiftyJSON.framework */; };
-		125009AF1E2F632C00303DEE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 125009AD1E2F632900303DEE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		125009B61E2F6ACC00303DEE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009B11E2F6ACC00303DEE /* Default-568h@2x.png */; };
 		125009B71E2F6ACC00303DEE /* ic_login_pass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009B21E2F6ACC00303DEE /* ic_login_pass@2x.png */; };
 		125009B81E2F6ACC00303DEE /* ic_login_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009B31E2F6ACC00303DEE /* ic_login_phone@2x.png */; };
 		125009B91E2F6ACC00303DEE /* ic_login_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009B41E2F6ACC00303DEE /* ic_login_user@2x.png */; };
 		125009BA1E2F6ACC00303DEE /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009B51E2F6ACC00303DEE /* logo@2x.png */; };
 		125009BC1E2F6B0100303DEE /* logo-index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125009BB1E2F6B0100303DEE /* logo-index@2x.png */; };
+		21C768D2AB2FD3295A0F4EC1 /* Pods_MOA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A862112230FAF3F936675C0B /* Pods_MOA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				125009AF1E2F632C00303DEE /* SwiftyJSON.framework in Embed Frameworks */,
-				125009AC1E2F627600303DEE /* IDZSwiftCommonCrypto.framework in Embed Frameworks */,
-				125009AB1E2F627200303DEE /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +63,6 @@
 		121EEFF11E2F4CDC00D1B7FE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		121EEFF31E2F51C300D1B7FE /* BrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 		121EEFF51E2F51D800D1B7FE /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		121EEFF71E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDZSwiftCommonCrypto.framework; sourceTree = "<group>"; };
 		123AC60F1E28DB0E00113D2C /* MOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		123AC6121E28DB0E00113D2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		123AC6141E28DB0E00113D2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,16 +76,17 @@
 		123AC62E1E28DB0E00113D2C /* MOAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		123AC6321E28DB0E00113D2C /* MOAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOAUITests.swift; sourceTree = "<group>"; };
 		123AC6341E28DB0E00113D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		123AC6401E28DBB400113D2C /* IDZSwiftCommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDZSwiftCommonCrypto.framework; path = /Users/qq/Desktop/GiveMeStrength/MOA/MOA/IDZSwiftCommonCrypto.framework; sourceTree = "<absolute>"; };
 		123AC6501E2DF35100113D2C /* DeviceCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCheckView.swift; sourceTree = "<group>"; };
-		125009A91E2F626900303DEE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
-		125009AD1E2F632900303DEE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
+		12421E431F28429C008C6035 /* MOA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOA.entitlements; sourceTree = "<group>"; };
 		125009B11E2F6ACC00303DEE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		125009B21E2F6ACC00303DEE /* ic_login_pass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_pass@2x.png"; sourceTree = "<group>"; };
 		125009B31E2F6ACC00303DEE /* ic_login_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_phone@2x.png"; sourceTree = "<group>"; };
 		125009B41E2F6ACC00303DEE /* ic_login_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_login_user@2x.png"; sourceTree = "<group>"; };
 		125009B51E2F6ACC00303DEE /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		125009BB1E2F6B0100303DEE /* logo-index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-index@2x.png"; sourceTree = "<group>"; };
+		51D529A511C55D079F2EFB2B /* Pods-MOA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOA/Pods-MOA.debug.xcconfig"; sourceTree = "<group>"; };
+		A862112230FAF3F936675C0B /* Pods_MOA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD4AA03BA939400C705D3D05 /* Pods-MOA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOA/Pods-MOA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				125009AE1E2F632900303DEE /* SwiftyJSON.framework in Frameworks */,
-				121EEFF81E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework in Frameworks */,
-				123AC6421E28DBC500113D2C /* IDZSwiftCommonCrypto.framework in Frameworks */,
-				125009AA1E2F626900303DEE /* Alamofire.framework in Frameworks */,
+				21C768D2AB2FD3295A0F4EC1 /* Pods_MOA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,12 +115,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B86D1356B9CF842DC09C255 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51D529A511C55D079F2EFB2B /* Pods-MOA.debug.xcconfig */,
+				FD4AA03BA939400C705D3D05 /* Pods-MOA.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		121EEFF01E2F4B5B00D1B7FE /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				125009AD1E2F632900303DEE /* SwiftyJSON.framework */,
-				125009A91E2F626900303DEE /* Alamofire.framework */,
-				121EEFF71E2F61A600D1B7FE /* IDZSwiftCommonCrypto.framework */,
 			);
 			name = Vendors;
 			sourceTree = "<group>";
@@ -144,6 +138,8 @@
 				123AC6261E28DB0E00113D2C /* MOATests */,
 				123AC6311E28DB0E00113D2C /* MOAUITests */,
 				123AC6101E28DB0E00113D2C /* Products */,
+				0B86D1356B9CF842DC09C255 /* Pods */,
+				60F824A39B1FCD9079943B29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +156,7 @@
 		123AC6111E28DB0E00113D2C /* MOA */ = {
 			isa = PBXGroup;
 			children = (
+				12421E431F28429C008C6035 /* MOA.entitlements */,
 				125009B01E2F6AB300303DEE /* Images */,
 				121EEFF01E2F4B5B00D1B7FE /* Vendors */,
 				125009BD1E2F7BC800303DEE /* Views */,
@@ -224,6 +221,14 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		60F824A39B1FCD9079943B29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A862112230FAF3F936675C0B /* Pods_MOA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,10 +236,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 123AC6371E28DB0E00113D2C /* Build configuration list for PBXNativeTarget "MOA" */;
 			buildPhases = (
+				80EAFE7A38504F721F9B5E58 /* [CP] Check Pods Manifest.lock */,
 				123AC60B1E28DB0E00113D2C /* Sources */,
 				123AC60C1E28DB0E00113D2C /* Frameworks */,
 				123AC60D1E28DB0E00113D2C /* Resources */,
 				123AC6441E28DBC500113D2C /* Embed Frameworks */,
+				76C883CEE9CA966CE94E3BB2 /* [CP] Embed Pods Frameworks */,
+				70F023DBD620C58BAE25DE32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,6 +303,17 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 97N7Y7Y4VE;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					123AC6221E28DB0E00113D2C = {
 						CreatedOnToolsVersion = 8.1;
@@ -362,6 +381,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70F023DBD620C58BAE25DE32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MOA/Pods-MOA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76C883CEE9CA966CE94E3BB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MOA/Pods-MOA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80EAFE7A38504F721F9B5E58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		123AC60B1E28DB0E00113D2C /* Sources */ = {
@@ -524,9 +591,12 @@
 		};
 		123AC6381E28DB0E00113D2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51D529A511C55D079F2EFB2B /* Pods-MOA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ivan hu (2K54GZ593R)";
+				CODE_SIGN_ENTITLEMENTS = MOA/MOA.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ivan hu (2K54GZ593R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 97N7Y7Y4VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,17 +607,20 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidibuy.moa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f698febd-d4f3-4a5b-a48e-801e0d019ef4";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS-dev";
+				PROVISIONING_PROFILE = "33362a30-8173-4284-9fbb-cfd33743ebb4";
+				PROVISIONING_PROFILE_SPECIFIER = "MOA-dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		123AC6391E28DB0E00113D2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4AA03BA939400C705D3D05 /* Pods-MOA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xidi E-Commerce Co. Ltd.";
+				CODE_SIGN_ENTITLEMENTS = MOA/MOA.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xidi E-Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 97N7Y7Y4VE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

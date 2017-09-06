@@ -34,6 +34,7 @@ extension NetworkManager {
 //                    }
 
                     let json = JSON(value)
+                    print(json)
                 case .failure(let error):
                     failture(error)
                     print("error:\(error)")
@@ -50,6 +51,7 @@ extension NetworkManager {
                 if let value = response.result.value as? [String: AnyObject] {
                     success(value)
                     let json = JSON(value)
+                    print(json)
                 }
             case .failure(let error):
                 failture(error)

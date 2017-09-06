@@ -69,12 +69,12 @@ class LoginView: UIView {
         
         //一个按钮
         let submit:UIButton = UIButton.init(type: .custom)
-        submit.setTitle("登录", for: UIControlState())
-        submit.setTitleColor(UIColor.white, for: UIControlState())
+        submit.setTitle("登录", for: UIControlState.normal)
+        submit.setTitleColor(UIColor.white, for: UIControlState.normal)
         submit.frame = CGRect(x: (fwidth-mwidth)/2+20, y: fheight/2+80, width: mwidth-40, height: 50)
         submit.backgroundColor = UIColor .init(colorLiteralRed: 0x0d/255.0, green: 0xc6/255.0, blue: 0xa6/255.0, alpha: 1)
         submit.titleLabel?.font = UIFont .systemFont(ofSize: 20.0)
-        submit.addTarget(self, action: #selector(LoginView.login), for: .touchUpInside)
+        submit.addTarget(self, action: #selector(login), for: .touchUpInside)
         self .addSubview(submit)
         
         buttonMarginBottom = 0.0
@@ -89,7 +89,7 @@ class LoginView: UIView {
             let requestUrlStr:String = UserDefaults.standard .object(forKey: "token")! as! String
             
             let dict = ["token": requestUrlStr]
-            NetworkManager.sharedInstance.postRequest(urlString: "https://moa.xiditech.com/passport/check", params: dict as [String : AnyObject]?, success: { (successResult) in
+            NetworkManager.sharedInstance.postRequest(urlString: "http://moa.xiditech.com/passport/check", params: dict as [String : AnyObject]?, success: { (successResult) in
                 let json = JSON(successResult)
                 if json["code"] == 0 {
                     self .showMsg("token登录成功，正在跳转。")
@@ -123,7 +123,7 @@ class LoginView: UIView {
             let passwordStr:String = hexString(fromArray: cipherText!, uppercase: false)
             
             let dict = ["mac":macStr, "password":passwordStr]
-            NetworkManager.sharedInstance.postRequest(urlString: "https://moa.xiditech.com/passport/sign", params: dict as [String : AnyObject]?, success: { (successResult) in
+            NetworkManager.sharedInstance.postRequest(urlString: "http://moa.xiditech.com/passport/sign", params: dict as [String : AnyObject]?, success: { (successResult) in
                 let json = JSON(successResult)
                 if json["code"] == 0 {
                     //保存token.
